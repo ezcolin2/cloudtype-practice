@@ -10,7 +10,7 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
 
-    url: jdbc:mysql://svc.gksl2.cloudtype.app:31576/db_example
+    url: jdbc:mysql://localhost/db_example
 
     username: springuser
     password: 1234
