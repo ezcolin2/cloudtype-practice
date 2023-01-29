@@ -11,6 +11,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.cors.CorsUtils;
 
 import java.net.http.HttpRequest;
 
@@ -31,6 +32,7 @@ public class SecurityConfig {
                 .authorizeRequests()
                 .requestMatchers("/api/v1/users/login", "/api/v1/users/join").permitAll()
                 .requestMatchers("/api/v1/reviews").authenticated()
+                .requestMatchers(CorsUtils::isPreFlightRequest).permitAll()
                 .and()
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
